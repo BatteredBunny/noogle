@@ -5,7 +5,6 @@ import { ReactNode, Suspense } from "react";
 import { SocialIcons } from "./layout";
 import localFont from "next/font/local";
 import { styled } from "@mui/material/styles";
-import { ThemeSwitch } from "./themeSwitch";
 
 const HeaderLink = styled(Link)(({ theme }) => ({
   color: theme.palette.primary.contrastText + "!important",
@@ -57,7 +56,6 @@ export const Header = (props: HeaderProps) => {
             LinkComponent={HeaderLink}
             className={fira.className}
             sx={{
-              color: "primary.contrastText",
               letterSpacing: -0.3,
             }}
             aria-label="Home"
@@ -94,7 +92,6 @@ export const Header = (props: HeaderProps) => {
           }}
         >
           <SocialIcons />
-          <ThemeSwitch />
         </Box>
       </Box>
 

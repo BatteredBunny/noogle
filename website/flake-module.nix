@@ -19,7 +19,7 @@
 
             # Website fonts
             echo "Copying fonts (1/2)..."
-            cp -rf ${pkgs.inter}/share/fonts/truetype/* ${fonts_path}
+            cp -rf ${pkgs.lexend}/share/fonts/variable/lexend/lexend/* ${fonts_path}
             echo "Copying fonts (2/2)..."
             cp -rf ${pkgs.fira-code}/share/fonts/truetype/* ${fonts_path}
             chmod -R +w ${fonts_path}

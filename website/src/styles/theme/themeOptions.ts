@@ -7,89 +7,31 @@ const cssThemeOptions: CssVarsThemeOptions = {
   colorSchemeSelector: "data-mui-color-scheme",
   ...commonOptions,
   colorSchemes: {
-    light: {
-      palette: {
-        mode: "light",
-        primary: {
-          main: "#6586c8",
-        },
-        secondary: {
-          main: "#6ad541",
-        },
-        background: {
-          paper: "#fafafa",
-          default: "#f0f1f2",
-        },
-        // @ts-expect-error
-        header: {
-          default: "var(--mui-palette-primary-main)",
-        },
-
-        code: {
-          bg: "#f0f1f2",
-          dark: "#0d1117",
-        },
-
-        fenced: {
-          bg: "#f9f9f9",
-        },
-
-        example: {
-          main: "#17a2b8",
-        },
-
-        warning: {
-          main: "#ffc107",
-        },
-
-        caution: {
-          main: "#d39e00",
-        },
-
-        important: {
-          main: "#dc3545",
-        },
-
-        tip: {
-          main: "#28a745",
-        },
-
-        note: {
-          main: "#007bff",
-        },
-
-        misc: {
-          a: "var(--mui-palette-primary-main)",
-          tableBorder: "#d8e2ff",
-        },
-      },
-    },
     dark: {
       palette: {
         mode: "dark",
         background: {
-          // default: "#0f192c",
-          default: "#1b1d22",
-          paper: "#17181c",
+          default: "#0e0e12",
+          paper: "#0e0e12",
         },
         primary: {
-          main: "#6586c8",
+          main: "hsl(270, 60%, 75%)",
         },
         secondary: {
-          main: "#40224e",
+          main: "hsl(270, 60%, 88%)",
         },
         // @ts-expect-error
         header: {
-          default: "#101010",
+          default: "#0e0e12",
         },
 
         code: {
-          bg: "#0d1117",
-          dark: "#0d1117",
+          bg: "#1a1a24",
+          dark: "#1a1a24",
         },
 
         fenced: {
-          bg: "#2c2c2c",
+          bg: "#1a1a24",
         },
 
         example: {
@@ -116,8 +58,8 @@ const cssThemeOptions: CssVarsThemeOptions = {
         },
 
         misc: {
-          a: "#adc6ff",
-          tableBorder: "#0f448e",
+          a: "hsl(270, 60%, 75%)",
+          tableBorder: "hsl(270, 60%, 25%)",
         },
       },
     },

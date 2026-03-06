@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   icons: "/favicon.png",
 };
 
-const inter = localFont({
-  src: "../fonts/InterVariable.ttf",
+const lexend = localFont({
+  src: "../fonts/Lexend[HEXP,wght].ttf",
   display: "swap",
 });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={lexend.className}>
       <head>
         {/* <link rel="icon" href="/favicon.png" /> */}
         <link
