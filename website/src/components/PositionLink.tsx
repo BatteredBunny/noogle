@@ -27,7 +27,6 @@ const getSourcePosition = (baseUrl: string, position: FilePosition): string => {
   }
   return res;
 };
-
 export const PositionLink = ({
   meta,
   content,
@@ -35,43 +34,14 @@ export const PositionLink = ({
   meta: DocMeta;
   content?: ContentSource;
 }) => {
-  const {
-    attr_position,
-    lambda_position,
-    count_applied,
-    content_meta,
-    is_primop,
-  } = meta;
+  const { attr_position, lambda_position, count_applied, content_meta } = meta;
 
   const contentPosition = content_meta?.position;
-  const position = attr_position || lambda_position;
 
   const is_inherited =
     JSON.stringify(content_meta?.path) !== JSON.stringify(meta.path);
   return (
     <div data-pagefind-ignore="all">
-      {!position && (
-        <>
-          <Typography
-            variant="subtitle1"
-            component={"div"}
-            sx={{ color: "text.secondary", pb: 2 }}
-          >
-            This function is not defined in a .nix file. It is likely a builtins
-            function or an alias of a builtins function. Builtins functions are
-            predefined functions provided by Nix.
-          </Typography>
-          {!is_primop && (
-            <Typography
-              variant="subtitle2"
-              component={"div"}
-              sx={{ color: "text.secondary", pb: 2 }}
-            >
-              This is very likely a bug in Noogle please report this error.
-            </Typography>
-          )}
-        </>
-      )}
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Typography
           variant="subtitle2"
@@ -83,7 +53,7 @@ export const PositionLink = ({
               target="_blank"
               href={getSourcePosition(
                 `https://github.com/nixos/nixpkgs/tree/${upstreamInfo.rev}`,
-                contentPosition
+                contentPosition,
               )}
             >
               <Button
@@ -102,7 +72,7 @@ export const PositionLink = ({
                   target="_blank"
                   href={getSourcePosition(
                     `https://github.com/nixos/nixpkgs/tree/${upstreamInfo.rev}`,
-                    attr_position
+                    attr_position,
                   )}
                 >
                   <Button
@@ -124,7 +94,7 @@ export const PositionLink = ({
                   target="_blank"
                   href={getSourcePosition(
                     `https://github.com/nixos/nixpkgs/tree/${upstreamInfo.rev}`,
-                    lambda_position
+                    lambda_position,
                   )}
                 >
                   <Button

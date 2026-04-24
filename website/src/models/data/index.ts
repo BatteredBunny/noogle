@@ -3,6 +3,21 @@ import types from "./builtins.types.json" assert { type: "json" };
 import links from "./manual-link.map.json" assert { type: "json" };
 import libMeta from "./lib-meta.json" assert { type: "json" };
 import nixMeta from "./nix-meta.json" assert { type: "json" };
+import language_json from "./language.json" assert { type: "json" };
+import builtinsImpl_json from "./builtins.impl.json" assert { type: "json" };
+
+export const language = language_json;
+
+export type BuiltinImpl = {
+  file: string;
+  line: number;
+  code: string;
+};
+export type BuiltinImpls = {
+  [name: string]: BuiltinImpl;
+};
+
+export const builtinImpls = builtinsImpl_json as BuiltinImpls;
 
 export type ManualLink = {
   id: string;
@@ -57,7 +72,9 @@ export type Doc = {
   content?: ContentSource;
 };
 
-export const data: Doc[] = all as unknown as Doc[];
+export const data: Doc[] = (all as unknown as Doc[])
+  // filter out nixPlugin builtin
+  .filter((docItem) => !docItem.meta.path.includes("lambdaMeta"));
 
 export type BuiltinType = { fn_type: string };
 export type BuiltinTypes = {

@@ -1,5 +1,6 @@
 import fs from "fs";
 import bash from "highlight.js/lib/languages/bash";
+import cpp from "highlight.js/lib/languages/cpp";
 import haskell from "highlight.js/lib/languages/haskell";
 import nix from "highlight.js/lib/languages/nix";
 import { SerializeOptions } from "next-mdx-remote/dist/types";
@@ -27,6 +28,7 @@ import type { Plugin } from "unified";
 import { rehypeExtractExcerpt } from "./excerpt";
 import remarkBareUrls, {
   replaceComponents,
+  rehypeLinkNoogleFunctions,
   sanitizeDirectives,
   styleDirectives,
   normalizeDirectives,
@@ -141,8 +143,9 @@ export const parseMd = async (src: string) => {
     })
     .use(rehypeHighlight, {
       detect: true,
-      languages: { nix, haskell, bash, default: nix },
+      languages: { nix, haskell, bash, cpp, default: nix },
     })
+    .use(rehypeLinkNoogleFunctions)
     .use(rehypeSlug, {})
     .use(rehypeAutolinkHeadings, {
       behavior: "wrap",
@@ -211,7 +214,7 @@ export const mdxRenderOptions: SerializeOptions["mdxOptions"] = {
       rehypeHighlight,
       {
         detect: true,
-        languages: { nix, haskell, bash, default: nix },
+        languages: { nix, haskell, bash, cpp, default: nix },
       },
     ],
     [rehypeSlug, {}],

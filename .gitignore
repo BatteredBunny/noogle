@@ -8,4 +8,5 @@ result
 result-*
 node_modules
 
-.pre-commit-config.yaml
+# cargo
+target
